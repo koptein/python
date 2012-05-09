@@ -3,8 +3,12 @@
 from sys import argv
 
 input_string = ''
-#input_string = raw_input('Enter Text: ')
-script, input_string = argv
+
+# If there is no argv read the text from console:
+if len(argv) == 1 :
+    input_string = raw_input('Enter Text: ')
+else :
+    input_string = argv[1]
 
 output_string = ''
 
@@ -18,4 +22,4 @@ for letter in input_string:
     else:
         output_string = output_string+alphabet[myindex+13]
 
-print "Encoded: " , output_string
+print  output_string
