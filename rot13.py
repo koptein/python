@@ -1,7 +1,10 @@
 #!/usr/bin/python
 
+from sys import argv
+
 input_string = ''
-input_string = raw_input('Enter Text: ')
+#input_string = raw_input('Enter Text: ')
+script, input_string = argv
 
 output_string = ''
 
