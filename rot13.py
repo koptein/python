@@ -15,8 +15,15 @@ output_string = ''
 alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 
 for letter in input_string:
-# Exclude Numbers:
-    if not letter.isdigit():
+
+    # Getting the type of an object.
+    #print letter + " -> " + str(type(letter))
+
+    # Exclude Numbers:
+    if letter.isdigit():
+        output_string = output_string+letter
+
+    else:
         myindex  = alphabet.index(letter.lower())
         if myindex >= 13:
             output_string = output_string+alphabet[myindex-13]    
