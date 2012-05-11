@@ -27,15 +27,14 @@ for letter in input_string:
     if letter.islower():
         use = alphabet
 
-    # Exclude Numbers:
-    if letter.isdigit():
+    # Exclude non alpha characters from conversion.
+    if not letter.isalpha():
         output_string = output_string+letter
 
     else:
         myindex  = alphabet.index(letter.lower())
         if myindex >= 13:
-                output_string = output_string+use[myindex-13]
-        
+            output_string = output_string+use[myindex-13]
         else:
             output_string = output_string+use[myindex+13]
 
