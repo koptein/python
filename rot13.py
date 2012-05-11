@@ -15,10 +15,10 @@ else :
     input_string = argv[1]
 
 for char in map(chr, xrange(97, 123)):
-    alphabet.append(c)
+    alphabet.append(char)
 
 for char in map(chr, xrange(65, 90)):
-    alphabet_upper.append(c)
+    alphabet_upper.append(char)
 
 for letter in input_string:
     #print letter + " -> " + str(type(letter))
