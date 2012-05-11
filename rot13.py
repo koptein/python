@@ -1,8 +1,11 @@
 #!/usr/bin/python
 
 from sys import argv
-
+#Initializing variables
 input_string = ''
+output_string = ''
+alphabet = []
+alphabet_upper = []
 
 # If there is no argv read the text from console:
 if len(argv) == 1 :
@@ -10,12 +13,11 @@ if len(argv) == 1 :
 else :
     input_string = argv[1]
 
-output_string = ''
+for c in map(chr, xrange(97, 123)):
+    alphabet.append(c)
 
-# This looks really dirty, there should be an other way.
-alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-alphabet_upper = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
-#print type(alphabet)
+for c in map(chr, xrange(65, 90)):
+    alphabet_upper.append(c)
 
 for letter in input_string:
     #print letter + " -> " + str(type(letter))
