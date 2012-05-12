@@ -8,17 +8,25 @@ input_string = ''
 output_string = ''
 alphabet = []
 alphabet_upper = []
-use_argv = False
+debug = False
+use_argv = True
 
+# Check if Verbose Mode is on:
+for element in argv:
+    if element == "-v":
+        debug = True
 #functions
 
 def readfile( filename ):
     text = ""
     myfile = open(filename)
     for line in myfile:
-        if line != "":
+        if not line.strip():
+            continue
+        else:
             text =  text + line
-    print "DEBUG:filecontent_= "+text
+    if debug:        
+        print "DEBUG:filecontent_= "+text
     return text
     
 # Ask for text if more or less than one argument.
@@ -29,9 +37,12 @@ else:
 
     for element in argv:
         if element == "-f":
-            print "DEBUG: File argument detected"
+            use_argv = False
+            if debug:
+                print "DEBUG: File argument detected"
             filename = argv[argv.index(element)+1]
-            print "DEBUG:filename= "+filename 
+            if debug:
+                print "DEBUG:filename= "+filename 
             input_string = readfile(filename)
 
 if use_argv: 
@@ -61,7 +72,11 @@ for letter in input_string:
         myindex  = alphabet.index(letter.lower())
         if myindex >= 13:
             output_string = output_string+use[myindex-13]
+            if debug: 
+                print "DEBUG: Replaced " + letter + " with " + use[myindex-13]
         else:
             output_string = output_string+use[myindex+13]
+            if debug: 
+                print "DEBUG: Replaced " + letter + " with " + use[myindex+13]
 
 print  output_string
