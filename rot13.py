@@ -9,8 +9,6 @@ from Rot13 import Rot13
 #Initializing variables
 input_string = ''
 output_string = ''
-alphabet = []
-alphabet_upper = []
 debug = False
 use_argv = True
 
@@ -53,9 +51,5 @@ if use_argv:
 
 Rotator = Rot13(input_string)
 output_string = Rotator.rotate()
-
-
-
-#Actually swap the letters
 
 print  output_string
