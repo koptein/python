@@ -4,13 +4,17 @@ from sys import argv
 import fileinput
 from Rot13 import Rot13
 
-
-
 #Initializing variables
 input_string = ''
 output_string = ''
 debug = False
 use_argv = True
+
+# TODO:
+# - If arguments contains "-" read input from stdin
+#   See stdin.py, there is a working example.
+# - Use argparse to handle all cli arguments,
+#   which should make above task easier as well.
 
 # Check if Verbose Mode is on:
 for element in argv:
