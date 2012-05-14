@@ -52,7 +52,6 @@ if use_argv:
     input_string = argv[1]
 
 Rotator = Rot13(input_string)
-
 output_string = Rotator.rotate()
 
 
