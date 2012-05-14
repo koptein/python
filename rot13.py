@@ -2,6 +2,9 @@
 
 from sys import argv
 import fileinput
+from Rot13 import Rot13
+
+
 
 #Initializing variables
 input_string = ''
@@ -47,36 +50,13 @@ else:
 
 if use_argv: 
     input_string = argv[1]
-#Filling the Alphabet arrays from the ascii table
 
-for char in map(chr, xrange(97, 123)):
-    alphabet.append(char)
+Rotator = Rot13(input_string)
 
-for char in map(chr, xrange(65, 90)):
-    alphabet_upper.append(char)
+output_string = Rotator.rotate()
+
+
 
 #Actually swap the letters
-
-for letter in input_string:
-    #print letter + " -> " + str(type(letter))
-
-    use = alphabet_upper
-    if letter.islower():
-        use = alphabet
-
-    # Exclude non alpha characters from conversion.
-    if not letter.isalpha():
-        output_string = output_string+letter
-
-    else:
-        myindex  = alphabet.index(letter.lower())
-        if myindex >= 13:
-            output_string = output_string+use[myindex-13]
-            if debug: 
-                print "DEBUG: Replaced " + letter + " with " + use[myindex-13]
-        else:
-            output_string = output_string+use[myindex+13]
-            if debug: 
-                print "DEBUG: Replaced " + letter + " with " + use[myindex+13]
 
 print  output_string
